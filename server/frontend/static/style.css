@@ -124,3 +124,40 @@ img{
     text-align:center;
     box-shadow: 2px 2px 3px #999;  
 }
+.contact-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.contact-container h1 {
+    text-align: center;
+    color: #008b8b;
+    margin-bottom: 15px;
+}
+
+.contact-intro {
+    text-align: center;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.contact-card {
+    background-color: #f5fafa;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border-left: 5px solid darkturquoise;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.contact-card h3 {
+    color: #008b8b;
+    margin-bottom: 15px;
+}
+
+.contact-card p {
+    color: #333;
+    line-height: 1.6;
+}
