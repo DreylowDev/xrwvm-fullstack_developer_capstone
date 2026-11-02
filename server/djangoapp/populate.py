@@ -1,60 +1,67 @@
 from .models import CarMake, CarModel
 
+
 def initiate():
     car_make_data = [
-        {"name":"NISSAN", "description":"Great cars. Japanese technology"},
-        {"name":"Mercedes", "description":"Great cars. German technology"},
-        {"name":"Audi", "description":"Great cars. German technology"},
-        {"name":"Kia", "description":"Great cars. Korean technology"},
-        {"name":"Toyota", "description":"Great cars. Japanese technology"},
+        {"name": "NISSAN", "description": "Great cars. Japanese technology"},
+        {"name": "Mercedes", "description": "Great cars. German technology"},
+        {"name": "Audi", "description": "Great cars. German technology"},
+        {"name": "Kia", "description": "Great cars. Korean technology"},
+        {"name": "Toyota", "description": "Great cars. Japanese technology"},
     ]
 
     car_make_instances = []
     for data in car_make_data:
-        car_make_instances.append(CarMake.objects.create(name=data['name'], description=data['description']))
+        car_make_instances.append(
+            CarMake.objects.create(
+                name=data['name'],
+                description=data['description'],
+            )
+        )
 
-    # Create CarModel instances with the corresponding CarMake instances
+    # (name, type, year, index of the car make above)
     car_model_data = [
-      # NISSAN
-      {"name":"Pathfinder", "type":"SUV", "year": 2023, "car_make":car_make_instances[0]},
-      {"name":"Qashqai", "type":"SUV", "year": 2023, "car_make":car_make_instances[0]},
-      {"name":"XTRAIL", "type":"SUV", "year": 2023, "car_make":car_make_instances[0]},
-      {"name":"Altima", "type":"SEDAN", "year": 2022, "car_make":car_make_instances[0]},
-      {"name":"Sentra", "type":"SEDAN", "year": 2021, "car_make":car_make_instances[0]},
-      {"name":"Kicks", "type":"SUV", "year": 2022, "car_make":car_make_instances[0]},
-
-      # Mercedes
-      {"name":"A-Class", "type":"SUV", "year": 2023, "car_make":car_make_instances[1]},
-      {"name":"C-Class", "type":"SUV", "year": 2023, "car_make":car_make_instances[1]},
-      {"name":"E-Class", "type":"SUV", "year": 2023, "car_make":car_make_instances[1]},
-      {"name":"S-Class", "type":"SEDAN", "year": 2023, "car_make":car_make_instances[1]},
-      {"name":"GLC", "type":"SUV", "year": 2022, "car_make":car_make_instances[1]},
-      {"name":"CLA", "type":"SEDAN", "year": 2021, "car_make":car_make_instances[1]},
-
-      # Audi
-      {"name":"A4", "type":"SUV", "year": 2023, "car_make":car_make_instances[2]},
-      {"name":"A5", "type":"SUV", "year": 2023, "car_make":car_make_instances[2]},
-      {"name":"A6", "type":"SUV", "year": 2023, "car_make":car_make_instances[2]},
-      {"name":"Q5", "type":"SUV", "year": 2022, "car_make":car_make_instances[2]},
-      {"name":"Q7", "type":"SUV", "year": 2023, "car_make":car_make_instances[2]},
-      {"name":"A3", "type":"SEDAN", "year": 2021, "car_make":car_make_instances[2]},
-
-      # Kia
-      {"name":"Sorrento", "type":"SUV", "year": 2023, "car_make":car_make_instances[3]},
-      {"name":"Carnival", "type":"SUV", "year": 2023, "car_make":car_make_instances[3]},
-      {"name":"Cerato", "type":"SEDAN", "year": 2023, "car_make":car_make_instances[3]},
-      {"name":"Sportage", "type":"SUV", "year": 2022, "car_make":car_make_instances[3]},
-      {"name":"Rio", "type":"SEDAN", "year": 2021, "car_make":car_make_instances[3]},
-      {"name":"Seltos", "type":"SUV", "year": 2023, "car_make":car_make_instances[3]},
-
-      # Toyota
-      {"name":"Corolla", "type":"SEDAN", "year": 2023, "car_make":car_make_instances[4]},
-      {"name":"Camry", "type":"SEDAN", "year": 2023, "car_make":car_make_instances[4]},
-      {"name":"Kluger", "type":"SUV", "year": 2023, "car_make":car_make_instances[4]},
-      {"name":"RAV4", "type":"SUV", "year": 2022, "car_make":car_make_instances[4]},
-      {"name":"Highlander", "type":"SUV", "year": 2023, "car_make":car_make_instances[4]},
-      {"name":"Avensis", "type":"WAGON", "year": 2018, "car_make":car_make_instances[4]},
+        # NISSAN
+        ("Pathfinder", "SUV", 2023, 0),
+        ("Qashqai", "SUV", 2023, 0),
+        ("XTRAIL", "SUV", 2023, 0),
+        ("Altima", "SEDAN", 2022, 0),
+        ("Sentra", "SEDAN", 2021, 0),
+        ("Kicks", "SUV", 2022, 0),
+        # Mercedes
+        ("A-Class", "SUV", 2023, 1),
+        ("C-Class", "SUV", 2023, 1),
+        ("E-Class", "SUV", 2023, 1),
+        ("S-Class", "SEDAN", 2023, 1),
+        ("GLC", "SUV", 2022, 1),
+        ("CLA", "SEDAN", 2021, 1),
+        # Audi
+        ("A4", "SUV", 2023, 2),
+        ("A5", "SUV", 2023, 2),
+        ("A6", "SUV", 2023, 2),
+        ("Q5", "SUV", 2022, 2),
+        ("Q7", "SUV", 2023, 2),
+        ("A3", "SEDAN", 2021, 2),
+        # Kia
+        ("Sorrento", "SUV", 2023, 3),
+        ("Carnival", "SUV", 2023, 3),
+        ("Cerato", "SEDAN", 2023, 3),
+        ("Sportage", "SUV", 2022, 3),
+        ("Rio", "SEDAN", 2021, 3),
+        ("Seltos", "SUV", 2023, 3),
+        # Toyota
+        ("Corolla", "SEDAN", 2023, 4),
+        ("Camry", "SEDAN", 2023, 4),
+        ("Kluger", "SUV", 2023, 4),
+        ("RAV4", "SUV", 2022, 4),
+        ("Highlander", "SUV", 2023, 4),
+        ("Avensis", "WAGON", 2018, 4),
     ]
 
-    for data in car_model_data:
-        CarModel.objects.create(name=data['name'], car_make=data['car_make'], type=data['type'], year=data['year'])
+    for name, car_type, year, make_index in car_model_data:
+        CarModel.objects.create(
+            name=name,
+            car_make=car_make_instances[make_index],
+            type=car_type,
+            year=year,
+        )
